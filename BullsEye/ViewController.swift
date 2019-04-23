@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetLabel: UILabel!
-    @IBOutlet weak var scoreUILabel: UILabel!
-    @IBOutlet weak var roundUILabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var roundLabel: UILabel!
     
     var currentValue = 0
     var targetValue = 0
@@ -28,8 +28,8 @@ class ViewController: UIViewController {
     
     func updateLabels() {
         targetLabel.text = String(targetValue)
-        scoreUILabel.text = String(score)
-        roundUILabel.text = String(round)
+        scoreLabel.text = String(score)
+        roundLabel.text = String(round)
     }
     
     func startNewRound() {
