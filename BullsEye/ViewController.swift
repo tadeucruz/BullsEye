@@ -22,6 +22,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startNewGame()
+    }
+    
+    func startNewGame() {
+        score = 0
+        round = 0
+        
         currentValue = lroundf(slider.value)
         startNewRound()
     }
@@ -48,6 +55,10 @@ class ViewController: UIViewController {
     @IBAction func sliderMoved(_ slider: UISlider) {
         print("The value of slider is now: \(slider.value)")
         currentValue = lroundf(slider.value)
+    }
+    
+    @IBAction func actionStartOver(_ sender: Any) {
+        startNewGame()
     }
     
     @IBAction func showAlert() {
@@ -77,14 +88,13 @@ class ViewController: UIViewController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Awesome", style: .default, handler: {action in
+            self.startNewRound()
+        })
         
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
-        
-        startNewRound()
-        
     }
     
 }
